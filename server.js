@@ -1,20 +1,22 @@
 const express = require("express");
 const app = express();
-const MongoClient = require("mongodb").MongoClient;
-const PORT = 2121;
+const connectDB = require("./config/database");
+
 require("dotenv").config();
 
-let db,
-  dbConnectionStr = process.env.DB_STRING,
-  dbName = "flashCards";
+connectDB();
 
-MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true }).then(
-  (client) => {
-    console.log(`Connected to ${dbName} Database`);
-    db = client.db(dbName);
-    // const cardsCollection = db.collection("cards");
-  }
-);
+// let db,
+//   dbConnectionStr = process.env.DB_STRING,
+//   dbName = "flashCards";
+
+// MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true }).then(
+//   (client) => {
+//     console.log(`Connected to ${dbName} Database`);
+//     db = client.db(dbName);
+//     // const cardsCollection = db.collection("cards");
+//   }
+// );
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -53,6 +55,6 @@ app.delete("/deleteCard", async (req, res) => {
     })
     .catch((error) => console.error(error));
 });
-app.listen(process.env.PORT || PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log(`Running on pot ${PORT}`);
 });
