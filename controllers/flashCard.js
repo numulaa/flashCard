@@ -3,7 +3,8 @@ const FlashCard = require("../models/FlashCard");
 module.exports = {
   getFlashCards: async (req, res) => {
     try {
-      res.render("flashCard.ejs");
+      const allCards = await FlashCard.find();
+      res.render("flashCard.ejs", { items: allCards });
     } catch (err) {
       console.log(err);
     }
