@@ -17,32 +17,9 @@
   </head>
   <body>
     <h1>My Flash Cards</h1>
-    <h2>Add A Flashcard:</h2>
-
-    <form action="/addCard" method="POST">
-      <input type="text" placeholder="Front" name="frontCard" />
-      <input type="text" placeholder="Back" name="backCard" />
-      <input type="submit" />
-    </form>
-
-    <ul class="allCards">
-      <% for(let i=0; i < items.length; i++) {%>
-      <li class="card card-box">
-        <p><%= items[i].front %></p>
-        <p class="backSide hiddenAnswer"><%= items[i].back %></p>
-        <div class="the-btn">
-          <button class="answerBtn">Show Answer</button>
-          <span class="fa fa-trash"></span>
-        </div>
-      </li>
-      <% } %>
-    </ul>
-    git init
-    <!-- git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/numulaa/flashCard.git
-git push -u origin main -->
+    <p>Create your own flashCards</p>
+    <a href="/login">Login</a>
+    <a href="/signup">Signup</a>
 
     <script src="js/main.js"></script>
   </body>
