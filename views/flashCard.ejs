@@ -26,16 +26,15 @@
     </form>
 
     <ul class="allCards">
-      <% for(let i=0; i < items.length; i++) {%>
-      <li class="card card-box">
-        <p><%= items[i].front %></p>
-        <p class="backSide hiddenAnswer"><%= items[i].back %></p>
-        <div class="the-btn">
-          <button class="answerBtn">Show Answer</button>
-          <span class="fa fa-trash"></span>
-        </div>
+      <% items.forEach( el => { %>
+      <li class="card-box card" data-id="<%=el._id%>">
+        <p><%= el.frontCard %></p>
+        <p class="backSide"><%= el.backCard %></p>
+        <button class="answerBtn">Show Answer</button>
+        <span class="fa fa-trash"></span>
+        <span class="timesReviewed"><%= el.reviewed %></span>
       </li>
-      <% } %>
+      <% }) %>
     </ul>
     <script src="js/main.js"></script>
   </body>
