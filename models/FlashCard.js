@@ -16,6 +16,10 @@ const FlashCardSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  categoryId: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("FlashCard", FlashCardSchema);

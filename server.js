@@ -9,6 +9,7 @@ const logger = require("morgan");
 const connectDB = require("./config/database");
 const homeRoutes = require("./routes/home");
 const flashCardRoutes = require("./routes/flashCard");
+const cardsCategories = require("./routes/cardCategory");
 
 require("dotenv").config({ path: "./config/.env" });
 require("./config/passport")(passport);
@@ -37,6 +38,7 @@ app.use(passport.session());
 app.use(flash());
 
 app.use("/", homeRoutes);
+app.use("/cardCategory", cardsCategories);
 app.use("/flashCard", flashCardRoutes);
 
 app.listen(process.env.PORT, () => {

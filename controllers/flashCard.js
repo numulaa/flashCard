@@ -7,6 +7,7 @@ module.exports = {
       res.render("flashCard.ejs", {
         items: allCards,
         user: req.user,
+        category: req.category,
       });
     } catch (err) {
       console.log(err);
@@ -18,6 +19,7 @@ module.exports = {
         frontCard: req.body.frontCard,
         backCard: req.body.backCard,
         reviewed: 0,
+        categoryId: req.body.id,
         userId: req.user.id,
       });
       console.log("a new flashCard has been added!");
